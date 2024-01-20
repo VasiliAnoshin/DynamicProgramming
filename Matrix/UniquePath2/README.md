@@ -36,3 +36,19 @@ class Solution:
 Explanation: 
 1) Calculate last row include obstacles.
 2) Calculate rest of the rows based on prev calculated row.
+
+SMART: 
+``` python
+    def uniquePathsWithObstacles(self, obstacleGrid: list[list[int]]) -> int:
+        m = len(obstacleGrid)
+        n = len(obstacleGrid[0])
+        dp = [0] *n
+        dp[n-1] = 1
+        for r in reversed(range(m)):
+            for c in reversed(range(n)):
+                if obstacleGrid[r][c]:
+                    dp[c] = 0
+                elif c+1 < n:
+                    dp[c] = dp[c] + dp[c+1]
+        return dp[0]
+```
