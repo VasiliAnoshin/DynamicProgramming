@@ -34,3 +34,5 @@ class Solution:
 ```
 
 Explanation: 
+1) Calculate last row include obstacles.
+2) Calculate rest of the rows based on prev calculated row.
